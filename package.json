@@ -3,10 +3,10 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dep": "git add . && git commit -m \"New Commit\" && git push",
-		"dev": "vite dev --port 3000 --open",
+		"dev": "vite dev --port 3000",
 		"build": "vite build",
 		"package": "svelte-kit package",
-		"preview": "env-cmd vite preview",
+		"preview": "vite preview",
 		"prepare": "svelte-kit sync",
 		"lint": "prettier --check --plugin-search-dir=. .",
 		"format": "prettier --write --plugin-search-dir=. ."

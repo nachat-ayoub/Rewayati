@@ -25,6 +25,9 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Rewayati - طغاة المانها وصلوا لعالم الروايات</title>
+</svelte:head>
 <div class="">
 	<NovelRow title="اخر التحديثات" novels={data?.last_updates} />
 	<NovelRow small title="الأكثر قراءة" novels={data?.popular_novels} />

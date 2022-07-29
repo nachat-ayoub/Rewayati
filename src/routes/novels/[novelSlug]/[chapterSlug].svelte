@@ -76,6 +76,10 @@
 	let maxFontSize = 30;
 </script>
 
+<svelte:head>
+	<title>Rewayati - {data?.chapter?.title} - {data?.title}</title>
+</svelte:head>
+
 <div class="w-full h-full md:p-5">
 	<div class="w-full h-full flex justify-between items-center flex-col">
 		<h1 dir="ltr" class="text-center text-2xl font-bold">

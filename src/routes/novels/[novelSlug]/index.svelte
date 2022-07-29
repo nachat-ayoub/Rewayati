@@ -24,6 +24,10 @@
 		.then((data) => (novel.chapters = data?.chapters || []));
 </script>
 
+<svelte:head>
+	<title>Rewayati - {novel?.title} رواية</title>
+</svelte:head>
+
 <div class="w-full h-full md:p-5">
 	<div class="w-full h-full flex justify-between items-center flex-col md:items-start md:flex-row">
 		<div class="w-60 h-80 ml-3">
