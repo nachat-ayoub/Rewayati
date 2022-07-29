@@ -37,7 +37,7 @@
 <div class="">
 	<!--  -->
 	<div class="mt-4">
-		{#if !data?.error}
+		{#if data?.results.length > 0}
 			<NovelRow title={`نتائج لـ ”${data?.query}”`} novels={data?.results} />
 		{:else}
 			<div class="w-full flex justify-center items-center py-5 px-4">
