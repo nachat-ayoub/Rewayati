@@ -26,6 +26,7 @@
 
 <script>
 	import NovelRow from '../../components/NovelRow.svelte';
+	import Title from '../../components/Title.svelte';
 
 	export let data;
 </script>
@@ -40,8 +41,11 @@
 		{#if data?.results.length > 0}
 			<NovelRow title={`نتائج لـ ”${data?.query}”`} novels={data?.results} />
 		{:else}
-			<div class="w-full flex justify-center items-center py-5 px-4">
-				<img class="w-full md:w-1/3 object-contain" src="/404_Novel.png" alt="404 Novel" />
+			<div class="w-full">
+				<Title title={`نتائج لـ ”${data?.query}”`} />
+				<div class="w-full flex justify-center items-center py-5 px-4">
+					<img class="w-full md:w-1/3 object-contain" src="/404_Novel.png" alt="404 Novel" />
+				</div>
 			</div>
 		{/if}
 	</div>
