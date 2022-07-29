@@ -1,6 +1,8 @@
 <script context="module">
 	export async function load({ params, fetch }) {
-		const url = `${process.env.BASE_API_URL}/novels/${params?.novelSlug}/${params?.chapterSlug}`;
+		const url = `${import.meta.env.VITE_BASE_API_URL}/novels/${params?.novelSlug}/${
+			params?.chapterSlug
+		}`;
 		const res = await fetch(url);
 		const data = await res.json();
 		data.chapters = [];
@@ -20,7 +22,7 @@
 	let chapterLoading = false;
 
 	function fetchAllChapters() {
-		fetch(`${process.env.BASE_API_URL}/novels/${data?.novel_slug}/chapters`)
+		fetch(`${import.meta.env.VITE_BASE_API_URL}/novels/${data?.novel_slug}/chapters`)
 			.then((res) => res.json())
 			.then((json) => (data.chapters = json?.chapters || []));
 	}
@@ -29,7 +31,7 @@
 
 	async function getChapterContent(ch_slug) {
 		if (!ch_slug || ch_slug === '#') return;
-		const url = `${process.env.BASE_API_URL}/novels/${data?.novel_slug}/${ch_slug}`;
+		const url = `${import.meta.env.VITE_BASE_API_URL}/novels/${data?.novel_slug}/${ch_slug}`;
 
 		chapterLoading = true;
 		const res = await fetch(url);

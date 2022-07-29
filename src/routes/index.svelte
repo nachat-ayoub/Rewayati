@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ fetch }) {
-		const url = `${process.env.BASE_API_URL}/novels`;
+		const url = `${import.meta.env.VITE_BASE_API_URL}/novels`;
 		const res = await fetch(url);
 		const data = await res.json();
 
@@ -20,8 +20,6 @@
 </script>
 
 <script>
-	// import { BASE_API_URL } from '../config';
-
 	import NovelRow from '../components/NovelRow.svelte';
 
 	export let data;

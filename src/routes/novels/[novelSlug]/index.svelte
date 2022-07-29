@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ params, fetch }) {
-		const url = `${process.env.BASE_API_URL}/novels/${params?.novelSlug}`;
+		const url = `${import.meta.env.VITE_BASE_API_URL}/novels/${params?.novelSlug}`;
 		const res = await fetch(url);
 		const novel = await res.json();
 
@@ -19,7 +19,7 @@
 
 	export let novel;
 
-	fetch(`${process.env.BASE_API_URL}/novels/${novel?.novel_slug}/chapters`)
+	fetch(`${import.meta.env.VITE_BASE_API_URL}/novels/${novel?.novel_slug}/chapters`)
 		.then((res) => res.json())
 		.then((data) => (novel.chapters = data?.chapters || []));
 </script>

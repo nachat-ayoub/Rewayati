@@ -3,7 +3,7 @@
 	export const load = async ({ url: Url, fetch }) => {
 		const query = Url.searchParams.get('s');
 		if (query) {
-			const url = `${process.env.BASE_API_URL}/novels/search/?s=${query}`;
+			const url = `${import.meta.env.VITE_BASE_API_URL}/novels/search/?s=${query}`;
 			const res = await fetch(url);
 			const data = await res.json();
 
