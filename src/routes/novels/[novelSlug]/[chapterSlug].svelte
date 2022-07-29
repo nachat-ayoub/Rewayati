@@ -170,7 +170,7 @@
 		{/if}
 
 		<!-- Start: Chapter Content -->
-		<div class="pb-4 md:px-16 font-bold text-justify text-dark" style:font-size={readFontSize}>
+		<div class="pb-4 px-2 md:px-16 font-bold text-justify text-dark" style:font-size={readFontSize}>
 			{#each data?.chapter?.content as text}
 				<p class="py-4 whitespace-pre-line">{text}</p>
 			{:else}
