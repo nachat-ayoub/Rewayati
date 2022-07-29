@@ -4,10 +4,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 const config = {
 	plugins: [sveltekit()],
 	define: {
-		...(process.env.NODE_ENV === 'development' && {
+		...{
 			'process.env': process.env
-		})
+		}
 	}
 };
 
 export default config;
+// process.env.NODE_ENV === 'development' &&
