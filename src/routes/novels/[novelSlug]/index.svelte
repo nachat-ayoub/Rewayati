@@ -21,14 +21,18 @@
 
 	fetch(`${import.meta.env.VITE_BASE_API_URL}/novels/${novel?.novel_slug}/chapters`)
 		.then((res) => res.json())
-		.then((data) => (novel.chapters = data?.chapters || []));
+		.then((data) => {
+			novel.chapters = data?.chapters || [];
+			novel.last_chapter = data?.chapters.at(0);
+			novel.first_chapter = data?.chapters.at(-1);
+		});
 </script>
 
 <svelte:head>
 	<title>Rewayati - {novel?.title} رواية</title>
 </svelte:head>
 
-<div class="w-full h-full md:p-5">
+<div class="w-full h-full p-3 md:p-5">
 	<div class="w-full h-full flex justify-between items-center flex-col md:items-start md:flex-row">
 		<div class="w-60 h-80 ml-3">
 			<img
@@ -79,6 +83,26 @@
 			</div>
 		</div>
 	</div>
+	<!-- Last And First Chapter -->
+	<div class="mt-5 w-full flex items-center justify-between">
+		<a
+			class="text-white bg-gradient-to-l from-darkBlue to-green-900 rounded font-bold px-4 py-1.5"
+			href={novel?.first_chapter
+				? `/novels/${novel?.novel_slug}/${novel?.first_chapter.slug}`
+				: '#أول فصل'}
+		>
+			أول فصل
+		</a>
+		<a
+			class="text-white bg-gradient-to-l from-darkBlue to-green-900 rounded font-bold px-4 py-1.5"
+			href={novel?.last_chapter
+				? `/novels/${novel?.novel_slug}/${novel?.last_chapter.slug}`
+				: '#آخر فصل'}
+		>
+			آخر فصل
+		</a>
+	</div>
+	<!-- Last And First Chapter -->
 
 	<div class="my-5">
 		<div class="flex justify-between">

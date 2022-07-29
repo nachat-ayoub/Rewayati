@@ -11,7 +11,7 @@
 	<Title {title} classes="text-lg" />
 	{#if small}
 		<div
-			class="px-2 py-5 gap-2 sm:gap-4 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-8"
+			class="px-2 py-5 gap-2 sm:gap-4 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10"
 		>
 			{#each novels as novel}
 				<NovelCard small {novel} />
