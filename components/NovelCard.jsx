@@ -1,6 +1,10 @@
 import Link from "next/link";
 
 const NovelCard = ({ novel, small }) => {
+  const noImage = [
+    "https://teamxnovel.com/wp-content/uploads/2021/12/EDCCB48A-6E69-4BB2-B523-C8090C9963B4-193x278.jpeg",
+    "https://teamxnovel.com/wp-content/uploads/2021/11/IMG_٢٠٢١١١٠٦_١٨٠٩٢٢-193x278.jpg",
+  ];
   return (
     <Link href={`/novels/${novel.novel_slug}`}>
       <a>
@@ -13,8 +17,14 @@ const NovelCard = ({ novel, small }) => {
             <img
               loading="lazy"
               className="object-cover w-full h-full border-gray-300 hover:scale-[1.2] hover:rotate-3 transition-all duration-300 ease-out "
-              src={novel.image}
+              src={
+                noImage.includes(novel.image) ? "/girl-cry.png" : novel.image
+              }
               alt={novel.title}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null; // prevents looping
+                currentTarget.src = "/girl-cry.png";
+              }}
             />
           </div>
           <h4
