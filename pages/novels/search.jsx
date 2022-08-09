@@ -12,7 +12,7 @@ const SearchPage = ({ data }) => {
       <div className="mt-4">
         {data?.results.length > 0 ? (
           <NovelRow
-            title={`نتائج لـ ${data?.results.length} ”${data?.query}”`}
+            title={`${data.results_count || "0"} نتائج لـ ”${data?.query}”`}
             novels={data?.results}
           />
         ) : (
