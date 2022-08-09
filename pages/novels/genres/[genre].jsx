@@ -22,15 +22,17 @@ export default function SearchByGenrePage({ data }) {
 
       <div className="w-full">
         <Title title={`التصنيفات :`} />
-        <ul className="w-full flex flex-wrap justify-start items-center py-5 px-4">
+        <ul className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 py-5 px-4">
           {data?.all_genres?.map((genre) => (
             <Link key={genre.slug} href={"/novels/genres/" + genre.slug}>
               <a>
-                <li className="flex items-center w-12 min-w-fit py-1 px-3 ml-6 font-semibold text-sm hover:text-darkGreen whitespace-nowrap">
+                <li className=" flex items-center w-12 min-w-fit py-1 px-3 font-semibold text-sm hover:text-darkGreen">
                   <span className="ml-2">
                     <i className="fa-solid fa-caret-left"></i>
                   </span>
-                  {genre.text}
+                  <span className="text-ellipsis overflow-hidden whitespace-nowrap">
+                    {genre.text}
+                  </span>
                 </li>
               </a>
             </Link>
