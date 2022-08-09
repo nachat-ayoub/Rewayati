@@ -1,3 +1,3 @@
-# [**Rewayati**](https://google.com)
+# [**Rewayati**](https://rewayati.vercel.app)
 
-### **Arabic novels website** created using **Sveltekit** framework
+### **Arabic novels website** created using **Sveltekit** in **"master"** branch and **Next.js** in **"nextjs"** branch framework

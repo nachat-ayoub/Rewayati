@@ -1,7 +1,6 @@
 <script context="module">
 	export async function load({ fetch }) {
-		const url = `${import.meta.env.VITE_BASE_API_URL}/novels`;
-		const res = await fetch(url);
+				const res = await fetch(url);
 		const data = await res.json();
 
 		if (res.ok) {
