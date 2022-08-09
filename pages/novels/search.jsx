@@ -2,7 +2,7 @@ import Head from "next/head";
 import NovelRow from "../../components/NovelRow";
 import Title from "../../components/Title";
 
-const Search = ({ data }) => {
+const SearchPage = ({ data }) => {
   return (
     <div>
       <Head>
@@ -32,7 +32,7 @@ const Search = ({ data }) => {
   );
 };
 
-export default search;
+export default SearchPage;
 
 export const getServerSideProps = async (ctx) => {
   const res = await fetch(

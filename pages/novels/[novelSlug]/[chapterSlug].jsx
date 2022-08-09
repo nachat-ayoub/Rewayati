@@ -265,7 +265,7 @@ const ChapterPage = ({ chapterData }) => {
   );
 };
 
-export default chapterPage;
+export default ChapterPage;
 
 export const getServerSideProps = async (ctx) => {
   const res = await fetch(

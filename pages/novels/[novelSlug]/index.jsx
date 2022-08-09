@@ -160,7 +160,7 @@ const NovelPage = ({ novel, api_url }) => {
   );
 };
 
-export default novelPage;
+export default NovelPage;
 
 export const getServerSideProps = async (ctx) => {
   let res = await fetch(`${process.env.BASE_API_URL}/${ctx.params?.novelSlug}`);
