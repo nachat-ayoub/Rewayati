@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 import LoadingPopup from "../../../components/LoadingPopup";
 import getNovelChapters from "../../../services/getNovelChapters";
-const chapterPage = ({ chapterData }) => {
+
+const ChapterPage = ({ chapterData }) => {
   const [chapters, setChapters] = useState([]);
   const [data, setData] = useState(null);
   const [chapterLoading, setChapterLoading] = useState(false);

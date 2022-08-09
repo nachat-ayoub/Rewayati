@@ -2,7 +2,7 @@ import Head from "next/head";
 import NovelRow from "../../components/NovelRow";
 import Title from "../../components/Title";
 
-const search = ({ data }) => {
+const Search = ({ data }) => {
   return (
     <div>
       <Head>

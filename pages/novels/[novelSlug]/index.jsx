@@ -4,7 +4,7 @@ import Link from "next/link";
 import Title from "../../../components/Title";
 import getNovelChapters from "../../../services/getNovelChapters";
 
-const novelPage = ({ novel, api_url }) => {
+const NovelPage = ({ novel, api_url }) => {
   const [chaptersLoaded, setChaptersLoaded] = useState(false);
   const [chapters, setChapters] = useState([]);
 

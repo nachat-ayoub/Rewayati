@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const SideNav = ({ sideNavHidden, ToggleSideNav }) => {
@@ -30,28 +31,34 @@ const SideNav = ({ sideNavHidden, ToggleSideNav }) => {
             <div className="w-full p-3">
               <ul className="w-full">
                 <li className="hover:text-green-800 my-3 text-lg font-bold">
-                  <a href="/">
-                    <span className="ml-2">
-                      <i className="fa-solid fa-home" />
-                    </span>
-                    الرئيسية
-                  </a>
+                  <Link href="/">
+                    <a>
+                      <span className="ml-2">
+                        <i className="fa-solid fa-home" />
+                      </span>
+                      الرئيسية
+                    </a>
+                  </Link>
                 </li>
                 <li className="hover:text-green-800 my-3 text-lg font-bold">
-                  <a href="/">
-                    <span className="ml-2">
-                      <i className="fa-solid fa-book" />
-                    </span>
-                    المكتبة
-                  </a>
+                  <Link href="/">
+                    <a>
+                      <span className="ml-2">
+                        <i className="fa-solid fa-book" />
+                      </span>
+                      المكتبة
+                    </a>
+                  </Link>
                 </li>
                 <li className="hover:text-green-800 my-3 text-lg font-bold">
-                  <a href="/">
-                    <span className="ml-2">
-                      <i className="fa-solid fa-shield-halved" />
-                    </span>
-                    سياسة الخصوصية
-                  </a>
+                  <Link href="/">
+                    <a>
+                      <span className="ml-2">
+                        <i className="fa-solid fa-shield-halved" />
+                      </span>
+                      سياسة الخصوصية
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>
