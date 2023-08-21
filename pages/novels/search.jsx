@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import NovelRow from "../../components/NovelRow";
-import Title from "../../components/Title";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import NovelRow from '../../components/NovelRow';
+import Title from '../../components/Title';
 
 const SearchPage = ({ data, currentOrder, currentPage }) => {
   const router = useRouter();
@@ -9,37 +9,37 @@ const SearchPage = ({ data, currentOrder, currentPage }) => {
   // ! Orders
   const orders = [
     {
-      text: "ملائم",
-      slug: "",
+      text: 'ملائم',
+      slug: '',
     },
     {
-      text: "الأحدث",
-      slug: "latest",
+      text: 'الأحدث',
+      slug: 'latest',
     },
     {
-      text: "A-Z",
-      slug: "alphabet",
+      text: 'A-Z',
+      slug: 'alphabet',
     },
     {
-      text: "التقييم",
-      slug: "rating",
+      text: 'التقييم',
+      slug: 'rating',
     },
     {
-      text: "الرائج",
-      slug: "trending",
+      text: 'الرائج',
+      slug: 'trending',
     },
     {
-      text: "الاكثر مشاهدات",
-      slug: "views",
+      text: 'الاكثر مشاهدات',
+      slug: 'views',
     },
     {
-      text: "جديد",
-      slug: "new-manga",
+      text: 'جديد',
+      slug: 'new-manga',
     },
   ];
 
   const updateSearchParams = (param) => {
-    const queries = ["s", "page", "orderby"];
+    const queries = ['s', 'page', 'orderby'];
 
     const key = Object.keys(param)[0];
     const val = param[key];
@@ -48,9 +48,9 @@ const SearchPage = ({ data, currentOrder, currentPage }) => {
 
     queries.map((query) => {
       if (key === query) {
-        urlParams.push(query + "=" + val);
+        urlParams.push(query + '=' + val);
       } else {
-        if (query === "page") {
+        if (query === 'page') {
           urlParams.push(`${query}=1`);
         } else if (router.query[query]) {
           urlParams.push(`${query}=${router.query[query]}`);
@@ -60,7 +60,7 @@ const SearchPage = ({ data, currentOrder, currentPage }) => {
       }
     });
 
-    router.push(`/novels/search?${urlParams.join("&")}`);
+    router.push(`/novels/search?${urlParams.join('&')}`);
   };
 
   return (
@@ -69,14 +69,14 @@ const SearchPage = ({ data, currentOrder, currentPage }) => {
         <title>{`Rewayati - ”${data?.query}” نتائج لـ`}</title>
       </Head>
 
-      <div className="mt-4 mb-8 flex flex-col flex-start">
-        <Title title={"ترتيب بـ "} />
-        <div className="mt-4 flex flex-wrap flex-start">
+      <div className='mt-4 mb-8 flex flex-col flex-start'>
+        <Title title={'ترتيب بـ '} />
+        <div className='mt-4 flex flex-wrap flex-start'>
           {orders.map((order) => (
             <span
               key={order.slug}
               className={`mx-2 font-semibold hover:text-darkGreen cursor-pointer ${
-                order.slug == currentOrder && "text-green-700 font-bold"
+                order.slug == currentOrder && 'text-green-700 font-bold'
               }`}
               onClick={() => updateSearchParams({ orderby: order.slug })}
             >
@@ -86,20 +86,20 @@ const SearchPage = ({ data, currentOrder, currentPage }) => {
         </div>
       </div>
 
-      <div className="my-4">
+      <div className='my-4'>
         {data && data?.results?.length > 0 ? (
           <NovelRow
             title={`${data.results_count} نتائج لـ ”${data?.query}”`}
             novels={data?.results}
           />
         ) : (
-          <div className="w-full">
+          <div className='w-full'>
             <Title title={`0 نتائج لـ ”${data?.query}”`} />
-            <div className="w-full flex justify-center items-center py-5 px-4">
+            <div className='w-full flex justify-center items-center py-5 px-4'>
               <img
-                className="w-full md:w-1/3 object-contain"
-                src="/404_Novel.png"
-                alt="404 Novel"
+                className='w-full md:w-1/3 object-contain'
+                src='/404_Novel.png'
+                alt='404 Novel'
               />
             </div>
           </div>
@@ -107,13 +107,13 @@ const SearchPage = ({ data, currentOrder, currentPage }) => {
       </div>
       {data && data?.pages > 1 && (
         <>
-          <Title title={"الصفحات : "} classes="mt-10" />
-          <div className="mt-4 flex flex-wrap flex-start">
+          <Title title={'الصفحات : '} classes='mt-10' />
+          <div className='mt-4 flex flex-wrap flex-start'>
             {[...Array(data?.pages).keys()].map((page) => (
               <span
                 key={page + 1}
                 className={`cursor-pointer px-2 mx-0.5 border-2 border-green-700 rounded-sm ${
-                  page + 1 == currentPage ? "bg-green-900 text-white" : ""
+                  page + 1 == currentPage ? 'bg-green-900 text-white' : ''
                 }`}
                 onClick={() => updateSearchParams({ page: page + 1 })}
               >
@@ -132,8 +132,8 @@ export default SearchPage;
 export const getServerSideProps = async (ctx) => {
   const res = await fetch(
     `${process.env.BASE_API_URL}/search/?page=${ctx.query.page || 1}&s=${
-      ctx.query.s || ""
-    }&orderby=${ctx.query.orderby || ""}`
+      ctx.query.s || ''
+    }&orderby=${ctx.query.orderby || ''}`
   );
 
   const data = await res.json();
@@ -141,7 +141,7 @@ export const getServerSideProps = async (ctx) => {
   return {
     props: {
       data,
-      currentOrder: ctx.query.orderby || "",
+      currentOrder: ctx.query.orderby || '',
       currentPage: ctx.query.page || 1,
     },
   };
